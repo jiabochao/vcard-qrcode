@@ -83,15 +83,14 @@ export default function Home() {
 
     const showModal = () => {
         const values = form.getFieldsValue(['name', 'org', 'title', 'telWork', 'telCell', 'email', 'adrWork']);
-        console.log(values)
-        if (fileList.length === 0) {
-            return;
+        if (fileList.length !== 0) {
+            let file = fileList[fileList.length - 1];
+            const url = URL.createObjectURL(file.originFileObj as FileType);
+            if (url) {
+                setQRCodeIconUrl(url);
+            }
         }
-        let file = fileList[fileList.length - 1];
-        const url = URL.createObjectURL(file.originFileObj as FileType);
-        if (url) {
-            setQRCodeIconUrl(url);
-        }
+        
         setQRCodeValue(`BEGIN:VCARD
 VERSION:3.0
 N;CHARSET=UTF-8:${values.name}
