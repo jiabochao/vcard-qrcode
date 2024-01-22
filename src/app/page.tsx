@@ -181,7 +181,7 @@ END:VCARD`);
                             <Form.Item
                                 label="工作电话"
                                 name="telWork"
-                                rules={[{required: true, message: '请输入！'}]}
+                                rules={[{required: false, message: '请输入！'}]}
                             >
                                 <InputNumber style={{width: '100%'}}/>
                             </Form.Item>
@@ -189,7 +189,7 @@ END:VCARD`);
                             <Form.Item
                                 label="电子邮箱"
                                 name="email"
-                                rules={[{required: true, message: '请输入！'}]}
+                                rules={[{required: false, message: '请输入！'}]}
                             >
                                 <Mentions/>
                             </Form.Item>
