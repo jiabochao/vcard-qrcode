@@ -91,7 +91,8 @@ export default function Home() {
         const url = URL.createObjectURL(file.originFileObj as FileType);
         if (url) {
             setQRCodeIconUrl(url);
-            setQRCodeValue(`BEGIN:VCARD
+        }
+        setQRCodeValue(`BEGIN:VCARD
 VERSION:3.0
 N;CHARSET=UTF-8:${values.name}
 ORG;CHARSET=UTF-8:${values.org}
@@ -101,7 +102,6 @@ TEL;CELL:${values.telCell}
 EMAIL:${values.email}
 ADR;WORK;CHARSET=UTF-8:${values.adrWork}
 END:VCARD`);
-        }
         setIsModalOpen(true);
     };
 
@@ -113,7 +113,7 @@ END:VCARD`);
         setIsModalOpen(false);
     };
 
-    const [qrCodeIconUrl, setQRCodeIconUrl] = useState<string>('');
+    const [qrCodeIconUrl, setQRCodeIconUrl] = useState<string | undefined>();
     const [qrCodeValue, setQRCodeValue] = useState<string>('');
 
 
